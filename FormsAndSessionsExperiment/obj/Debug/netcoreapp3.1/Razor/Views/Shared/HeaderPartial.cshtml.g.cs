@@ -19,8 +19,15 @@ using FormsAndSessionsExperiment.ViewModels.Admin;
 #line default
 #line hidden
 #nullable disable
+#nullable restore
+#line 2 "C:\Users\Drg\source\repos\FormsAndSessionsExperiment\FormsAndSessionsExperiment\Views\_ViewImports.cshtml"
+using FormsAndSessionsExperiment.ViewModels.Main;
+
+#line default
+#line hidden
+#nullable disable
     [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"6b3c91b601f58d573e5e22c9bfa971a4f65957cb", @"/Views/Shared/HeaderPartial.cshtml")]
-    [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"d1cbc0e25a02360caffd53324bfadc308a582969", @"/Views/_ViewImports.cshtml")]
+    [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"2984840e8835c20f9c843e305d73a9ed2ea25409", @"/Views/_ViewImports.cshtml")]
     public class Views_Shared_HeaderPartial : global::Microsoft.AspNetCore.Mvc.Razor.RazorPage<dynamic>
     {
         #pragma warning disable 1998

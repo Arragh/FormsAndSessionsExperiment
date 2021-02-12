@@ -1,0 +1,22 @@
+﻿@model IEnumerable<string>
+
+<table border="1">
+    <tr>
+        <td>
+            <a asp-action="Index" asp-route-categoryName="">Все сообщения</a>
+        </td>
+        @foreach (var category in Model)
+        {
+            <td>
+                @if (category == ViewBag.CurrentCategory)
+                {
+                    @category
+                }
+                else
+                {
+                    <a asp-action="Index" asp-route-categoryName="@category">@category</a>
+                }
+            </td>
+        }
+    </tr>
+</table>

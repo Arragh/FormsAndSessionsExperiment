@@ -78,3 +78,4 @@ C:\Users\Drg\source\repos\FormsAndSessionsExperiment\FormsAndSessionsExperiment\
 C:\Users\Drg\source\repos\FormsAndSessionsExperiment\FormsAndSessionsExperiment\obj\Debug\netcoreapp3.1\FormsAndSessionsExperiment.dll
 C:\Users\Drg\source\repos\FormsAndSessionsExperiment\FormsAndSessionsExperiment\obj\Debug\netcoreapp3.1\FormsAndSessionsExperiment.pdb
 C:\Users\Drg\source\repos\FormsAndSessionsExperiment\FormsAndSessionsExperiment\obj\Debug\netcoreapp3.1\FormsAndSessionsExperiment.genruntimeconfig.cache
+C:\Users\Drg\source\repos\FormsAndSessionsExperiment\FormsAndSessionsExperiment\obj\Debug\netcoreapp3.1\Razor\Views\Shared\Components\Navigation\Default.cshtml.g.cs

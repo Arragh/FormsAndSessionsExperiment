@@ -1,8 +1,35 @@
-﻿@if (TempData["SuccessMessage"] != null)
+﻿@model IndexViewModel
+
+@if (TempData["SuccessMessage"] != null)
 {
     <h3>@TempData["SuccessMessage"]</h3>
 }
 
-<br /><br /><br />
+<br />
+<br />
+<br />
 
-Что-то там про Index
+@await Component.InvokeAsync("Navigation")
+
+<br />
+<br />
+<br />
+
+<table border="1">
+    @foreach (var message in Model.Messages)
+    {
+        <tr bgcolor="red">
+            <td>
+                @message.Title
+            </td>
+            <td>
+                @message.Category.Name
+            </td>
+        </tr>
+        <tr>
+            <td colspan="2">
+                @message.Body
+            </td>
+        </tr>
+    }
+</table>
