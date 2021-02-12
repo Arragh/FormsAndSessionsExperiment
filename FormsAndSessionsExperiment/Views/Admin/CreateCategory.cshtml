@@ -1,0 +1,7 @@
+﻿@model CreateCategoryViewModel
+
+<form asp-action="ProcessCategory" asp-controller="Admin" method="post">
+    <span asp-validation-for="Name"></span><br />
+    <input type="text" asp-for="Name" />
+    <button type="submit">Создать категорию</button>
+</form>

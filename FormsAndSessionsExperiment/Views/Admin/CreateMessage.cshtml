@@ -1,0 +1,11 @@
+﻿@model CreateMessageViewModel
+
+<form asp-action="ProcessMessage" asp-controller="Admin" method="post">
+    <span asp-validation-for="Title"></span><br />
+    <input type="text" asp-for="Title" /><br /><br />
+    <span asp-validation-for="Body"></span><br />
+    <textarea asp-for="Body"></textarea><br /><br />
+    <label asp-for="CategoryId"></label>
+    <select asp-for="CategoryId" asp-items="Model.Categories"><option></option></select>
+    <button type="submit">Создать Сообщение</button>
+</form>
