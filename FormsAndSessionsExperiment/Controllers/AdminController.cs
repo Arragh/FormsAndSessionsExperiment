@@ -15,19 +15,29 @@ namespace FormsAndSessionsExperiment.Controllers
         private ITestRepository repository;
         public AdminController(ITestRepository repository) => this.repository = repository;
 
+        public ViewResult TestMessage() => View();
+
+        [HttpGet]
         public ViewResult CreateMessage() => View(new CreateMessageViewModel { Categories = new SelectList(repository.Categories, "CategoryId", "Name") });
-        public RedirectToActionResult ProcessMessage()
+
+        [HttpPost]
+        public IActionResult ProcessMessage(CreateMessageViewModel model)
         {
-            Message newMessage = new Message
+            if (ModelState.IsValid)
             {
-                MessageId = Guid.NewGuid(),
-                Title = Request.Form["Title"],
-                Body = Request.Form["Body"],
-                CategoryId = Guid.Parse(Request.Form["CategoryId"])
-            };
-            repository.AddMessage(newMessage);
-            TempData["SuccessMessage"] = $"Сообщение {newMessage.Title} успешно создано";
-            return RedirectToAction("Index", "Main");
+                Message newMessage = new Message
+                {
+                    MessageId = Guid.NewGuid(),
+                    Title = model.Title,
+                    Body = model.Body,
+                    CategoryId = model.CategoryId
+                };
+                repository.AddMessage(newMessage);
+                TempData["SuccessMessage"] = $"Сообщение {newMessage.Title} успешно создано";
+                return RedirectToAction("Index", "Main");
+            }
+            model.Categories = new SelectList(repository.Categories, "CategoryId", "Name");
+            return View("CreateMessage", model);
         }
 
         [HttpGet]
