@@ -1,12 +1,10 @@
 ﻿using FormsAndSessionsExperiment.Models;
 using FormsAndSessionsExperiment.Models.ContextModels;
 using FormsAndSessionsExperiment.ViewModels.Admin;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 
 namespace FormsAndSessionsExperiment.Controllers
 {
@@ -42,19 +40,28 @@ namespace FormsAndSessionsExperiment.Controllers
         }
 
         [HttpGet]
-        public ViewResult CreateCategory() => View();
+        public ViewResult CreateCategory()
+        {
+            ViewBag.SessionData = HttpContext.Session.GetString("Test");
+            return View();
+        }
 
         [HttpPost]
-        public RedirectToActionResult ProcessCategory()
+        public IActionResult ProcessCategory(CreateCategoryViewModel model)
         {
-            Category newCategory = new Category
+            if (ModelState.IsValid)
             {
-                CategoryId = Guid.NewGuid(),
-                Name = Request.Form["Name"]
-            };
-            repository.AddCategory(newCategory);
-            TempData["SuccessMessage"] = $"Категория {newCategory.Name} успешно создана";
-            return RedirectToAction("Index", "Main");
+                HttpContext.Session.SetString("Test", $"Была создана категория {model.Name}");
+                Category newCategory = new Category
+                {
+                    CategoryId = Guid.NewGuid(),
+                    Name = model.Name
+                };
+                repository.AddCategory(newCategory);
+                TempData["SuccessMessage"] = $"Категория {newCategory.Name} успешно создана";
+                return RedirectToAction("Index", "Main");
+            }
+            return View("CreateCategory");
         }
     }
 }

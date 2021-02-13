@@ -12,12 +12,12 @@ namespace FormsAndSessionsExperiment.ViewModels.Admin
     {
         [Required(ErrorMessage = "Введите заголовок сообщения")]
         [Display(Name = "Заголовок")]
-        [StringLength(64, ErrorMessage = "минимум 6 символов, максимум 64", MinimumLength = 6)]
+        [StringLength(64, ErrorMessage = "минимум {2} символов, максимум {1}", MinimumLength = 6)]
         public string Title { get; set; }
 
         [Required(ErrorMessage = "Введите содержание сообщения")]
         [Display(Name = "Содержание")]
-        [StringLength(10000, ErrorMessage = "минимум 6 символов, максимум 10 000", MinimumLength = 6)]
+        [StringLength(10000, ErrorMessage = "минимум {2} символов, максимум {1}", MinimumLength = 6)]
         public string Body { get; set; }
 
         [Required(ErrorMessage = "Выберите категорию")]

@@ -24,6 +24,9 @@ namespace FormsAndSessionsExperiment
 
             services.AddDbContext<TestDbContext>(options => options.UseSqlServer(Configuration.GetConnectionString("SessionSqlDB")));
             services.AddTransient<ITestRepository, EFTestRepository>();
+
+            services.AddMemoryCache();
+            services.AddSession();
         }
 
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
@@ -35,6 +38,7 @@ namespace FormsAndSessionsExperiment
 
             app.UseRouting();
             app.UseStaticFiles();
+            app.UseSession();
 
             app.UseEndpoints(endpoints =>
             {
