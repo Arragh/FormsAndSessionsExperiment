@@ -36,6 +36,7 @@ namespace FormsAndSessionsExperiment.Controllers
                 TempData["SuccessMessage"] = $"Сообщение {newMessage.Title} успешно создано";
                 return RedirectToAction("Index", "Main");
             }
+            // Переназначение категорий
             model.Categories = new SelectList(repository.Categories, "CategoryId", "Name");
             return View("CreateMessage", model);
         }
