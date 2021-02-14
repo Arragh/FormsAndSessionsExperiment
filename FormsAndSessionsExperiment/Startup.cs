@@ -42,6 +42,7 @@ namespace FormsAndSessionsExperiment
 
             app.UseEndpoints(endpoints =>
             {
+                endpoints.MapControllerRoute(null, "{categoryName}", new { controller = "Main", action = "Index" });
                 endpoints.MapControllerRoute(null, "{controller=Main}/{action=Index}/{id?}");
             });
         }
